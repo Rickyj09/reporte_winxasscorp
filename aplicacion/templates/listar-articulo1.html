@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/static/img/favicon.png">
+  <title>{%block title%}ARTICULO{%endblock%}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}" />
+</head>
+
+<body background="/static/img/fondo1.jpg">
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('home')}}">INICIO </a>
+    </li>
+    <li class="nav-item">
+      {% if current_user.is_authenticated %}
+      <a class="nav-link" href="/logout"> {{ current_user.username}} (Salir)</a>
+    </li>
+    <li class="nav-item">
+      {% else %}
+      <a class="nav-link" href="/login">Login</a>
+      <a class="nav-link" href="/registro">Registro</a>
+      {% endif %}
+    </li>
+  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <img src="/static/img/logo1.png">
+        <h6>
+          DATOS ARTICULO
+        </h6>
+      </div>  
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <table class="table table-bordered">
+          <tr>
+            <th>CÓDIGO</th>
+            <th>NOMBRE</th>
+            <th>CLA</th>
+            <th>UNI</th>
+            <th>EMP</th>
+            <th>MARCA</th>
+            <th>EXISTE</th>
+            <th>PRECIO1</th>
+            <th>PRECIO2</th>
+            <th>PRECIO3</th>
+            <th>PRECIO4</th>
+            <th>cospro</th>
+            <th>ultcos</th>
+            <th>prec05</th>
+            <th>prec06</th>
+            <th>peso</th>
+            
+            
+          </tr>
+         
+          {% for cat in data %}
+          <tr>
+            <td>{{cat.0}}</td>
+            <td>{{cat.1}}</td>
+            <td>{{cat.2}}</td>
+            <td>{{cat.3}}</td>
+            <td>{{cat.4}}</td>
+            <td>{{cat.5}}</td>
+            <td>{{cat.6}}</td>
+            <td>{{cat.7}}</td>
+            <td>{{cat.8}}</td>
+            <td>{{cat.9}}</td>
+            <td>{{cat.10}}</td>
+            <td>{{cat.11}}</td>
+            <td>{{cat.12}}</td>
+            <td>{{cat.13}}</td>
+            <td>{{cat.14}}</td>
+            <td>{{cat.15}}</td>
+            
+            
+          </tr>
+          {% endfor %}
+          <table class="table table-bordered">
+            <tr>
+              <th>codiva</th>
+              <th>prcc01</th>
+              <th>prcc02</th>
+              <th>prcc03</th>
+              <th>prcc04</th>
+              <th>tippro</th>
+              <th>especial</th>
+              <th>unicaj</th>
+              <th>univen</th>
+            </tr>
+            {% for cat in data %}
+            <tr>
+              <td>{{cat.16}}</td>
+              <td>{{cat.17}}</td>
+              <td>{{cat.18}}</td>
+              <td>{{cat.19}}</td>
+              <td>{{cat.20}}</td>
+              <td>{{cat.21}}</td>
+              <td>{{cat.22}}</td>
+              <td>{{cat.23}}</td>
+              <td>{{cat.24}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        
+      </div>  
+      <div class="form-group col-xs-12 col-sm-12 col-md-3  position-relative">
+        <a href="{{ url_for('busc_articulo') }}" class="btn btn-dark btn-sm rounded-0">Volver</a>
+      </div>
+    </div>
+  </div>
+        
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+{% extends 'layout.html' %}
+{%block title%} Formulario FR-INPS-009.02 {%endblock%}
+{% block content %}
+<body>
+    <hr>
+    <center><h1>INSPECCIÓN DEL INDICADOR DEL MOMENTO DE CARGA (LMI)</h1></center>
+    <h2>INSTRUMENTACIÓN DEL EQUIPO</h2>
+    <h3>LONGITUD DE LA PLUMA m / ft	</h3>													
+      <h3>  Indicador ± 2%	</h3>
+        
+    <hr>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          m
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          ft
+        </label>
+    </div>
+      <h2>Referencia</h2>
+      <h3>Retraído</h3>
+      <form class="row g-3 needs-validation" novalidate>
+         <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">TABLA</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="TABLA" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">LMI</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">FISICO</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">Resultado Retraído</label>
+             <select class="form-select" aria-label="RESULTADO">
+                <option selected>RESULTADO</option>
+                <option placeholder="1">S</option>
+                <option placeholder="2">DG</option>
+            </select>
+        </div>
+      </form>    
+      <hr>
+    <h2>Referencia</h2>
+      <h3>Extendido 100%</h3>
+      <form class="row g-3 needs-validation" novalidate>
+         <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">TABLA</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="TABLA" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">LMI</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">FISICO</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+        </div>
+		<div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">Resultado Extendido 100%</label>
+             <select class="form-select" aria-label="CONDICIÓN">
+                <option selected>RESULTADO</option>
+                <option placeholder="1">S</option>
+                <option placeholder="2">DG</option>
+            </select>
+         </div>	
+      </form>    
+      <hr>	
+         <h3>ANGULO DE LA PLUMA</h3>													
+         <h3>   65° a 90°  (+ 0°/-2°); < 65° (+ 0°/-3°)	</h3> 
+         <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label"> Angulo 65° a 90°  (+ 0°/-2°)</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="Angulo" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">LMI</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">FISICO</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">Resultado Angulo 65° a 90°  (+ 0°/-2°)</label>
+                <select class="form-select" aria-label="CONDICIÓN">
+                   <option selected>RESULTADO</option>
+                   <option placeholder="1">S</option>
+                   <option placeholder="2">DG</option>
+               </select>
+            </div>	
+         </form> 
+           <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label"> Angulo menor 65° (+ 0°/-3°)</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="Angulo" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">LMI</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">FISICO</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">Resultado Angulo menor 65° (+ 0°/-3°)</label>
+                <select class="form-select" aria-label="CONDICIÓN">
+                   <option selected>RESULTADO</option>
+                   <option placeholder="1">S</option>
+                   <option placeholder="2">DG</option>
+               </select>
+            </div>	
+         </form> 
+         <hr>
+        <h2>RADIO m / ft</h2>
+        <h3>Indicador 100% a 110%</h3>
+        <h4>Angulo 69grados</h4>
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">TABLA</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="TABLA" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">LMI</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">FISICO</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+               <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+           </div>
+           <div class="col-md-4 position-relative">
+               <label for="validationTooltip01" class="form-label">Resultado Angulo 69</label>
+                <select class="form-select" aria-label="CONDICIÓN">
+                   <option selected>RESULTADO</option>
+                   <option placeholder="1">S</option>
+                   <option placeholder="2">DG</option>
+               </select>
+            </div>	
+         </form>
+         <hr>
+         <h4>Angulo 65.5 grados</h4>
+         <form class="row g-3 needs-validation" novalidate>
+             <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">TABLA</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="TABLA" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">LMI</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">FISICO</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">Resultado Angulo 65.5</label>
+                 <select class="form-select" aria-label="CONDICIÓN">
+                    <option selected>RESULTADO</option>
+                    <option placeholder="1">S</option>
+                    <option placeholder="2">DG</option>
+                </select>
+             </div>	
+          </form>
+          <hr>
+          <h4>Angulo 59.5 grados</h4>
+          <form class="row g-3 needs-validation" novalidate>
+              <div class="col-md-4 position-relative">
+                 <label for="validationTooltip01" class="form-label">TABLA</label>
+                 <input type="text" class="form-control" id="validationTooltip01" placeholder="TABLA" required>
+             </div>
+             <div class="col-md-4 position-relative">
+                 <label for="validationTooltip01" class="form-label">LMI</label>
+                 <input type="text" class="form-control" id="validationTooltip01" placeholder="LMI" required>
+             </div>
+             <div class="col-md-4 position-relative">
+                 <label for="validationTooltip01" class="form-label">FISICO</label>
+                 <input type="text" class="form-control" id="validationTooltip01" placeholder="FISICO" required>
+             </div>
+             <div class="col-md-4 position-relative">
+                 <label for="validationTooltip01" class="form-label">VARIANCIA %</label>
+                 <input type="text" class="form-control" id="validationTooltip01" placeholder="VARIANCIA %" required>
+             </div>
+             <div class="col-md-4 position-relative">
+                 <label for="validationTooltip01" class="form-label">Resultado Angulo 59.5</label>
+                  <select class="form-select" aria-label="CONDICIÓN">
+                     <option selected>RESULTADO</option>
+                     <option placeholder="1">S</option>
+                     <option placeholder="2">DG</option>
+                 </select>
+              </div>	
+           </form>
+           <hr>
+        <h2>LIMITADOR DEL MOMENTO DE CARGA</h2>
+           <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">A2TB</label>
+                 <select class="form-select" aria-label="CONDICIÓN">
+                    <option selected>RESULTADO</option>
+                    <option placeholder="1">S</option>
+                    <option placeholder="2">DG</option>
+                </select>
+             </div>
+             <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">LIMITE - ANGULO</label>
+                 <select class="form-select" aria-label="CONDICIÓN">
+                    <option selected>RESULTADO</option>
+                    <option placeholder="1">S</option>
+                    <option placeholder="2">DG</option>
+                </select>
+             </div>
+             <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">LIMITE - RADIO</label>
+                 <select class="form-select" aria-label="CONDICIÓN">
+                    <option selected>RESULTADO</option>
+                    <option placeholder="1">S</option>
+                    <option placeholder="2">DG</option>
+                </select>
+             </div>
+             <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">INDICADOR LONGITUD</label>
+                 <select class="form-select" aria-label="CONDICIÓN">
+                    <option selected>RESULTADO</option>
+                    <option placeholder="1">S</option>
+                    <option placeholder="2">DG</option>
+                </select>
+             </div>
+             <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">SOBRECARGA</label>
+                 <select class="form-select" aria-label="CONDICIÓN">
+                    <option selected>RESULTADO</option>
+                    <option placeholder="1">S</option>
+                    <option placeholder="2">DG</option>
+                </select>
+             </div>
+        </form>
+        <hr>
+        <center><h1>ENSAYO CON CARGA DEL LMI</h1></center>
+        <hr>
+        <h2>DATOS DE LA CARGA</h2>
+        <h3>UNIDAD/MEDIDA</h3>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Kg
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Lb
+            </label>
+        </div>
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">CARGA UTILIZADA</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="CARGA UTILIZADA" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">PESO CARGA</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO CARGA" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">PESO APAREJOS </label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO APAREJOS " required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">PESO TOTAL</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO TOTAL" required>
+            </div>
+        </form>
+        <hr>
+        <h2>CONFIGURACIÓN</h2>
+        <h3>UNIDAD/MEDIDA</h3>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              m
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              ft
+            </label>
+        </div>
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">LONGITUD DE PLUMA</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="LONGITUD DE PLUMA" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">RADIO DE OPERACIÓN</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="RADIO DE OPERACIÓN" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">ANGULO DE PLUMA (°) </label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="ANGULO DE PLUMA (°)" required>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip01" class="form-label">CAPACIDAD MÁXIMA</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="CAPACIDAD MÁXIMA" required>
+            </div>
+        </form>
+        <hr>
+        <h3>PORCENTAJE DE DESVIACIÓN</h3>
+        <p>
+            Indicador de radio de operación: (Indicador 100% a 110%)																																				
+            Indicadores de ángulo: (Indicador 65° a 90° ángulo de la pluma + 0°/-2°; menos de 65° ángulo de la pluma + 0°/-3°)																																				
+            Indicador de longitud de boom: (indicador ± 2%)																																				
+        </p>
+        <hr>
+        <h1>CONCLUSIONES:</h1>
+        <h3>De acuerdo a los estándares y normativas aplicadas, se concluye que los elementos y ayudas operacionales son:</h3>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              CONFORME
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              NO CONFORME
+            </label>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
+        <hr>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="{{ url_for('caratula')}}">CARATULA</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CHECK_LIST_bck')}}">CHECH LIST</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_LMI')}}">REP -LMI-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('PRUE_CARG')}}">REP - PRUE-CARG-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_FOTO')}}">REP-FOT-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('RESULTADOS')}}">RESULTADOS</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CERTIFICADO_GM')}}">CERTIFICADO GM</a></li>
+        </ul>
+      </nav>
+      
+     </form>
+</body>
+</html>
+{% endblock %}

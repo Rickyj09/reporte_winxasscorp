@@ -1,0 +1,56 @@
+{% extends "layout_pac.html" %}
+{% block title %}PACIENTES{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+  
+    <h3>PACIENTES</h3>
+    <br />
+
+    <form action="/listar-paci/{{paci.0}}" method="POST" class="row g-3 needs-validation">
+      <div class="form-group col-xs-12 col-sm-12 col-md-3  position-relative">
+        {{ form.ci.label }} {{ form.ci(class_="form-control") }}
+        {% for error in form.ci.errors %}
+        <span style="color: red;"> {{ error }} </span>
+        {% endfor %}
+    </div>
+      
+      <div class="col-12">
+        {{ form.hidden_tag() }}
+        {{ form.submit(class_="btn btn-primary") }}
+        <a href="{{ url_for('listar_paci') }}" class="btn btn-dark btn-sm rounded-0">Fin</a>
+    </div>
+    </form>
+    <hr>
+
+    {% if is_admin %}
+    <a class="btn btn-primary" href="{{url_for('edit_pac/{{paciente[2]}}')}}" role="button"> Paciente</a>
+    {% endif %}
+    <br /><br />
+    <div class="list-group">
+      <table class="table table-bordered">
+        <tr>
+          <th>Número Identidad</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Buscar</th>
+        </tr>
+        {% for cat in paci %}
+        <tr>
+          <td>{{cat.0}}</td>
+          <td>{{cat.1}}</td>
+          <td>{{cat.3}}</td>
+          <td><a href="{{url_for('home')}}"><span class="glyphicon glyphicon-pencil"></span> Ir</a></td>
+         
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    
+  </div>
+
+</div>
+
+
+{% endblock %}

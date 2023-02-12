@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}FOTO PRUEBA DE CARGA{% endblock %}
+{% block content %}
+	    <h2>Geleria de imágenes</h2>
+	    
+	    	{% for lis in lista %}
+	    	
+	    	<img src="{{url_for('static',filename='img/subidas/')}}{{lis}}"/>
+	    	{% endfor %}
+	    	<br/>
+	    	<a href="{{url_for('upload')}}">Subir más imagenes</a>
+			<br/>
+			<a href="{{url_for('RESULTADOS')}}">Terminar</a>
+	    	<br/>
+  
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout_for.html" %}
+{% block title %}FOTO PRUEBA DE CARGA{% endblock %}
+{% block content %}
+	    <h2>Geleria de imágenes</h2>
+	    
+	    	{% for lis in lista %}
+	    	<img src="{{url_for('static',filename='img/subidas/')}}{{lis}}"/>
+	    	{% endfor %}
+	    	<br/>
+	    	<a href="{{url_for('upload')}}">Subir más imagenes</a>
+			<br/>
+			<a href="{{url_for('RESULTADOS')}}">Terminar</a>
+	    	<br/>
+			<h2>RESUMEN DE LA INSPECCIÓN</h2>
+			<p>De acuerdo a los resultados obtenidos y que se adjunta en el reporte, quienes firman, certifican que en la fecha de esta inspección, las poleas descritas, fueron sometidos a una prueba de ensayo no destructivo de Inspección Visual, según ASME Sección V Artículo 9 (2019) y Líquidos Penetrantes, según ASTM E165/E165M-18  y la evaluación de conformidad de los elementos fueron realizados bajo los criterios del estándar  ASME B30.26:2015 Aparejos,  para la emisión del presente reporte.
+				El accesorio será considerado como APROBADO,  para incluirlo en el CERTIFICADO, siempre que, apruebe tanto la Inspección Visual como la Inspección por Líquidos Penetrantes.</p>
+			<hr>
+			<p>Los abajo firmantes, certificamos que lo expuesto en este registro, es correcto y que el elemento o accesorio fueron preparadas e inspeccionadas, de acuerdo con los requerimientos  del procedimiento aplicado  PR-INSP-006 Inspección visual, PR-INSP-007 Líquidos penetrantes. </p>
+			<form class="row g-3 needs-validation" >
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 position-relative">
+					<h6>FIRMA</h6>
+				</div>
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 position-relative">
+					<h6>FIRMA</h6>
+				</div>
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 position-relative">
+					<h6>INSPECTOR ENII SA NDT NIVEL II VT Y PT</h6>
+				</div>
+				<div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+					<h6>GERENTE TÉCNICO ENII SA NDT NIVEL II VT Y PT</h6>
+				</div>
+			</form>
+
+
+{% endblock %}

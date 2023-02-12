@@ -1,0 +1,38 @@
+{% extends "layout1.html" %}
+{% block title %}Reportes WinXassCorp{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-10">
+      <h3>Reportes WinXassCorp</h3>
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Ir</th>
+
+          </tr>
+
+
+          <tr>
+            <td>REPORTE 1</td>
+            <td>Reporte Articulos</td>
+            <td><a href="{{url_for('import_csv_p')}}"><span class="glyphicon glyphicon-pencil"></span> Ir</a></td>
+          </tr>
+          <tr>
+            <td>REPORTE 2</td>
+            <td>Reporte Clientes</td>
+            <td><a href="{{url_for('home')}}"><span class="glyphicon glyphicon-pencil"></span> Ir</a></td>
+          </tr>
+          
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}

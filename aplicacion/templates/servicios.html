@@ -1,0 +1,269 @@
+{% extends 'layout.html' %}
+{%block title%} Formulario FR-INPS-009.02 {%endblock%}
+{% block content %}
+<body>
+    <hr>
+    <P>
+        DOCUMENTOS DE REFERENCIA:  ASME B30.5 (2018), ASME B30.9 (2018), ASME B30.10 (2019)																																					
+        "CONDICIÓN:     S: Satisfactorio;     DG: Defecto Grave
+                    MANUAL DEL FABRICANTE"	
+    </P>
+    <center><h1>PRUEBA DE CARGA</h1></center>
+    <center><h2>PRUEBA DE ENSAYO ESTÁTICO</h2></center>
+    
+    <hr>
+      <form class="row g-3 needs-validation" novalidate>
+      <h2>DATOS DE LA CARGA</h2>													
+      <h3>UNIDAD/MEDIDA</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="Kg" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Kg
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="Lb" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Lb
+        </label>
+    </div> 
+      
+        <div class="col-md-3 position-relative">
+           <label for="validationTooltip01" class="form-label">CARGA UTILIZADA</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="CARGA UTILIZADA" required>
+       </div>
+       <div class="col-md-3 position-relative">
+           <label for="validationTooltip01" class="form-label">PESO CARGA</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO CARGA" required>
+       </div>
+       <div class="col-md-3 position-relative">
+           <label for="validationTooltip01" class="form-label">PESO APAREJOS</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO APAREJOS" required>
+       </div>
+       <div class="col-md-3 position-relative">
+           <label for="validationTooltip01" class="form-label">PESO TOTAL</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO TOTAL" required>
+       </div>
+     
+     <hr>
+
+      <h2>CONFIGURACIÓN</h2>													
+      <h3>UNIDAD/MEDIDA</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          m
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          ft
+        </label>
+    </div>
+      
+         <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">LONGITUD DE PLUMA</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="LONGITUD DE PLUMA" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">RADIO DE OPERACIÓN</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="RADIO DE OPERACIÓN" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">ANGULO DE PLUMA (°)</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="ANGULO DE PLUMA (°)" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">CAPACIDAD MÁXIMA</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="CAPACIDAD MÁXIMA" required>
+        </div>
+         
+
+    <hr>  
+    <h2>COMPROBACIÓN DE ESTABILIZADORES</h2>
+      <h3>UNIDAD/MEDIDA</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          m
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          ft
+        </label>
+    </div>
+     
+      <h3>Tiempo 5 minutos</h3>
+      
+        <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">CARGA</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="CARGA" required>
+       </div>
+       <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">ESTAB. 1</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="ESTAB. 1" required>
+       </div>
+       <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">ESTAB. 2</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="ESTAB. 2" required>
+       </div>
+       <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">ESTAB. 3</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="ESTAB. 3" required>
+       </div>
+       <div class="col-md-4 position-relative">
+        <label for="validationTooltip01" class="form-label">ESTAB. 4</label>
+        <input type="text" class="form-control" id="validationTooltip01" placeholder="ESTAB. 4" required>
+    </div>
+     
+     <hr>
+     <h3>EVALUACIÓN DEL ENSAYO</h3>
+     <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        CONFORME
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        NO CONFORME
+      </label>
+  </div>
+      <hr>
+      <p>
+        El ensayo con carga  suspendida se ha llevado acabo por un lapso comprendido entre 5 y 15 minutos.
+        La carga se encuentra configurada en posición según tabla de cargas , teniendo en cuenta el peso de la carga en servicio y el peso del dispositivo de sujeción de esta y las fijaciones de los mecanismos de maniobra.
+      </p>
+      <hr>
+      <center><h2>PRUEBA DE ENSAYO DINÁMICO</h2></center>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Kg
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Lb
+        </label>
+    </div>  
+     
+        <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">CARGA UTILIZADA</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="CARGA UTILIZADA" required>
+       </div>
+       <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">PESO CARGA</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO CARGA" required>
+       </div>
+       <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">PESO APAREJOS</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO APAREJOS" required>
+       </div>
+       <div class="col-md-4 position-relative">
+           <label for="validationTooltip01" class="form-label">PESO TOTAL</label>
+           <input type="text" class="form-control" id="validationTooltip01" placeholder="PESO TOTAL" required>
+       </div>
+     
+     <hr>
+     <h2>CONFIGURACIÓN</h2>													
+      <h3>UNIDAD/MEDIDA</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          m
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          ft
+        </label>
+    </div>
+      
+     
+         <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">LONGITUD DE PLUMA</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="LONGITUD DE PLUMA" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">RADIO DE OPERACIÓN</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="RADIO DE OPERACIÓN" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">ANGULO DE PLUMA (°)</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="ANGULO DE PLUMA (°)" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">CAPACIDAD MÁXIMA</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="CAPACIDAD MÁXIMA" required>
+        </div>
+      
+      <hr>
+      <h2>ROTACIÓN DE LA CARGA</h2>
+      <h3>Condición</h3>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip01" class="form-label">sistema movimiento y frenado</label>
+         <select class="form-select" aria-label="CONDICIÓN">
+            <option selected>CONDICIÓN</option>
+            <option placeholder="1">S</option>
+            <option placeholder="2">DG</option>
+        </select>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label for="validationTooltip01" class="form-label">Estado de los estabilizadores</label>
+         <select class="form-select" aria-label="CONDICIÓN">
+            <option selected>CONDICIÓN</option>
+            <option placeholder="1">S</option>
+            <option placeholder="2">DG</option>
+        </select>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label for="validationTooltip01" class="form-label">Condiciones de estabilidad de la máquina</label>
+         <select class="form-select" aria-label="CONDICIÓN">
+            <option selected>CONDICIÓN</option>
+            <option placeholder="1">S</option>
+            <option placeholder="2">DG</option>
+        </select>
+</div>
+<hr>
+<h3>EVALUACIÓN DEL ENSAYO</h3>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" value ="conforme" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    CONFORME
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" value ="no conforme" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    NO CONFORME
+  </label>
+</div>
+      <hr>
+      <center><h2>EVIDENCIA PRUEBA DE  CARGA</h2></center>
+
+        <hr>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="{{ url_for('caratula')}}">CARATULA</a></li>  
+              <li class="page-item"><a class="page-link" href="{{ url_for('CHECK_LIST_bck')}}">CHECH LIST</a></li>
+              <li class="page-item"><a class="page-link" href="{{ url_for('REP_LMI')}}">REP -LMI-001</a></li>
+              <li class="page-item"><a class="page-link" href="{{ url_for('PRUE_CARG')}}">REP - PRUE-CARG-001</a></li>
+              <li class="page-item"><a class="page-link" href="{{ url_for('REP_FOTO')}}">REP-FOT-001</a></li>
+              <li class="page-item"><a class="page-link" href="{{ url_for('RESULTADOS')}}">RESULTADOS</a></li>
+              <li class="page-item"><a class="page-link" href="{{ url_for('CERTIFICADO_GM')}}">CERTIFICADO GM</a></li>
+            </ul>
+          </nav>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+     </form>
+</body>
+</html>
+{% endblock %}

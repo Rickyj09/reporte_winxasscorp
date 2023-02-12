@@ -1,0 +1,30 @@
+{% extends "layout_pac.html" %}
+{% block content %}
+
+<div class="row">
+  <div class="form-group col-xs-12 col-sm-12 col-md-8  position-relative"">
+    <div class="card card-body">
+       
+          <form  class="row g-3 needs-validation" novalidate method="POST">
+            <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+              {{ form.iden.label }} {{ form.iden(class_="form-control") }}
+              {% for error in form.iden.errors %}
+              <span style="color: red;"> {{ error }} </span>
+              {% endfor %}
+            </div>
+             <button class="form-group col-xs-12 col-sm-12 col-md-6  position-relative  btn btn-primary btn-block" type="submit" >
+              Buscar 
+            </button>
+          </div>
+        </form>
+    </div>
+</div>
+</div>
+<hr>
+<hr>
+
+<div class="list-group">
+ 
+</div>
+
+{% endblock %}

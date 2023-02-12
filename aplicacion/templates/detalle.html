@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{%block title%} pagina servicios {%endblock%}
+{% block content %}
+<body>
+  <h1>Hola pagina Servicios</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('home')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{ url_for('servicios')}}">Servicios</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{datos[1]}}</li>
+    </ol>
+  </nav>
+    
+    <h2>Estos son nuestros servicios</h2>
+    <div class="media">
+        <div class="media-left media-middle">
+          <a href="{{ url_for('servicios_detalle', slug=datos[2]) }}">
+            <img class="media-object" src="{{datos[4]}}" alt="{{datos[1]}}" width="200" height="200" />
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{datos[1]}}</h4>
+          {{datos[3]}}
+        </div>
+      </div>
+</body>
+</html>
+{% endblock %}

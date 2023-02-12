@@ -1,0 +1,58 @@
+{% extends "layout1.html" %}
+{% block title %}Lista de Formularios{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+  <div class="col-md-2">
+    <h3>Formularios...</h3>  
+    <div class="list-group">
+      
+      {% for cat in categorias %}
+      {% if categoria.nombre==cat.nombre%}
+        <a class="list-group-item active" href="{{url_for("inicio_1",id=cat.id)}}">{{cat.nombre}}</a>
+      {% else %}
+        <a class="list-group-item" href="{{url_for("inicio_1",id=cat.id)}}">{{cat.nombre}}</a>
+      {% endif%}
+      {% endfor %}
+      
+    </div>
+    <br/>
+    {% if current_user.is_authentificated and current_user.is_admin() %}
+    <a class="btn btn-primary" href="{{url_for('articulos_new')}}" role="button">Nuevo Formulario</a>
+    {% endif %}
+    <br/>
+  </div>
+  <div class="col-md-10">
+	    <h3>FORMULARIOS... ({{categoria.nombre}})</h3>
+	    <div class="panel panel-default">
+  			<table class="table table-bordered">
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Ir</th>
+            {% if current_user.is_authenticated and current_user.is_admin()  %}
+            <th>Modificar</th>
+            {% endif %}   
+            {% if current_user.is_authenticated %}
+            {% endif %}
+          </tr>
+  	    		{% for art in articulos %}
+
+  	    			<tr>
+                <td>{{art.nombre}}</td>
+                <td>{{art.descripcion}}</td>
+                <td><a href="{{url_for('home')}}"><span class="glyphicon glyphicon-pencil"></span> Ir</a></td>
+                {% if current_user.is_authenticated and current_user.is_admin()  %}
+                <td><a href="{{url_for('cons_404')}}"><span class="glyphicon glyphicon-pencil"></span> Modificar</a></td>
+                {% endif %}   
+                 
+  	    			</tr>
+  	    		{% endfor %}
+  	    	</table>
+  	    
+  	</div>
+  </div>
+</div>
+ 	
+  
+{% endblock %}

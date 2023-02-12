@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{%block title%} PRUEBA DE CARGA FR-INPS-009.02 {%endblock%}
+{% block content %}
+<body>
+    <center><h1>EVIDENCIA PRUEBA DE  CARGA</h1></center>
+    <h2>Subir imágnes</h2>
+	    {% for field, errors in form.errors.items() %}
+			<div class="alert alert-danger">
+    		{{ form[field].label }}: {{ ', '.join(errors) }}
+			</div>
+		{% endfor %}
+	   	<form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+    		{{ form.csrf_token }}
+    		{{form.photo.label() }}{{form.photo()}}<br/>
+			<br/>
+  			{{form.submit()}}
+		</form>
+      <br>  
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="{{ url_for('caratula')}}">CARATULA</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CHECK_LIST_bck')}}">CHECH LIST</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('PRUE_CARG')}}">REP - PRUE-CARG-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_FOTO')}}">REP-FOT-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('servicios')}}">RESULTADOS</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('servicios')}}">CERTIFICADO GM</a></li>
+        </ul>
+      </nav>
+        
+     </form>
+</body>
+</html>
+{% endblock %}

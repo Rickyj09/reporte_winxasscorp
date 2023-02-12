@@ -1,0 +1,195 @@
+{% extends 'layout.html' %}
+{%block title%} Formulario FR-INPS-009.02 {%endblock%}
+{% block content %}
+<body>
+    <hr>
+    <h1>FR-INPS-009.02 Reporte Inspección Grúas Boom Articulado</h1>
+    <form class="row g-3 needs-validation" novalidate method="POST">
+        <h3>DATOS DEL EQUIPO</h3>
+        <div class="col-md-4 position-relative">
+            {{ form.de_marca.label }} {{ form.de_marca(class_="form-control") }}
+            {% for error in form.de_marca.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">SERIE</label>
+            <input type="text" class="form-control" name=de_serie id="validationTooltip01" placeholder="Serie" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">TIPO</label>
+            <input type="text" class="form-control" name=de_tipo id="validationTooltip01" placeholder="Tipo" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">MODELO</label>
+            <input type="text" class="form-control" name=de_modelo id="validationTooltip01" placeholder="Modelo" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">CAPACIDAD</label>
+            <input type="text" class="form-control" name=de_capacidad id="validationTooltip01" placeholder="Capacidad" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">HORÓMETRO</label>
+            <input type="text" class="form-control" name=de_horometro id="validationTooltip01" placeholder="Horometro" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">AÑO</label>
+            <input type="text" class="form-control" name=de_anio id="validationTooltip01" placeholder="Anio" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">CÓDIGO INTERNO</label>
+            <input type="text" class="form-control" name=de_cod_interno id="validationTooltip01" placeholder="Cod_interno" required>
+        </div>
+        <h3>DATOS DEL MOTOR</h3>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">MARCA</label>
+            <input type="text" class="form-control" name=dm_marca id="validationTooltip01" placeholder="Marca Motor" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">SERIE</label>
+            <input type="text" class="form-control" name=dm_serie id="validationTooltip01" placeholder="Serie Motor" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">MODELO</label>
+            <input type="text" class="form-control" name=dm_modelo id="validationTooltip01" placeholder="Modelo Motor" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">KILOMETRAJE</label>
+            <input type="text" class="form-control" name=dm_kilometro id="validationTooltip01" placeholder="Kilometraje" required>
+        </div>
+        <hr>
+        <h3>CAPACIDADES DE TRABAJO</h3>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">CAPACIDAD MÁXIMA</label>
+            <input type="text" class="form-control" name=ct_capmax id="validationTooltip01" placeholder="Capacidad_Maxima" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">LONG PLUMA</label>
+            <input type="text" class="form-control" name=ct_longpluma id="validationTooltip01" placeholder="LONG PLUMA" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">RADIO</label>
+            <input type="text" class="form-control" name=ct_radio id="validationTooltip01" placeholder="RADIO" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">ANGULO</label>
+            <input type="text" class="form-control" name=ct_angulo id="validationTooltip01" placeholder="ANGULO" required>
+        </div>
+        <hr>
+        <h3>DATOS LMI</h3>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">FABRICANTE</label>
+            <input type="text" class="form-control" name=ct_lmi id="validationTooltip01" placeholder="FABRICANTE" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">MARCA</label>
+            <input type="text" class="form-control" name=ct_marca id="validationTooltip01" placeholder="MARCA" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">MODELO</label>
+            <input type="text" class="form-control" name=ct_modelo id="validationTooltip01" placeholder="MODELO" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip01" class="form-label">SERIE</label>
+            <input type="text" class="form-control" name=ct_serie id="validationTooltip01" placeholder="SERIE" required>
+        </div>
+        <hr>
+        <h3>DATOS BLOQUES DE CARGA</h3>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">CAPACIDAD BLOQUE PRIN</label>
+            <input type="text" class="form-control" name=dbc_capbloprin id="validationTooltip01" placeholder="CAPACIDAD BLOQUE PRIN" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">CAPACIDAD BLOQUE AUX</label>
+            <input type="text" class="form-control" name=dbc_capbloaux id="validationTooltip01" placeholder="CAPACIDAD BLOQUE AUX" required>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">DIÁMETRO DE CABLE</label>
+            <input type="text" class="form-control" name=dbc_diacable id="validationTooltip01" placeholder="DIÁMETRO DE CABLE" required>
+        </div>
+        <hr>
+       <h3>INSTRUMENTACIÓN DEL EQUIPO</h3>
+       <h4>LOAD MOMENT INDICATOR  LMI</h4>
+       <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Fabricante</label>
+        <input type="text" class="form-control" name=lmi_favricante id="validationTooltip01" placeholder="Fabricante" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Marca</label>
+        <input type="text" class="form-control" name=lmi_marca id="validationTooltip01" placeholder="Marca" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Modelo</label>
+        <input type="text" class="form-control" name=lmi_modelo id="validationTooltip01" placeholder="Modelo" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Serie</label>
+        <input type="text" class="form-control" name=lmi_serie id="validationTooltip01" placeholder="Serie" required>
+    </div>
+    <h4>PASTECA PRINCIPAL</h4>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Marca</label>
+        <input type="text" class="form-control" name=pp_marca id="validationTooltip01" placeholder="Marca" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Capacidad</label>
+        <input type="text" class="form-control" name=pp_capacidad id="validationTooltip01" placeholder="Capacidad" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Modelo</label>
+        <input type="text" class="form-control" name=pp_modelo id="validationTooltip01" placeholder="Modelo" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Serie/Referencia</label>
+        <input type="text" class="form-control" name=pp_serie_ref id="validationTooltip01" placeholder="Serie_Referencia" required>
+    </div>
+    <h4>PASTECA SECUNDARIA</h4>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Marca</label>
+        <input type="text" class="form-control" name=ps_marca id="validationTooltip01" placeholder="Marca" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Capacidad</label>
+        <input type="text" class="form-control" name=ps_capacidad id="validationTooltip01" placeholder="Capacidad" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Modelo</label>
+        <input type="text" class="form-control" name=ps_modelo id="validationTooltip01" placeholder="Modelo" required>
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip01" class="form-label">Serie/Referencia</label>
+        <input type="text" class="form-control" name=ps_serieref id="validationTooltip01" placeholder="Serie_Referencia" required>
+    </div>
+    <h2>RESULTADOS: </h2>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          CONFORME
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          NO CONFORME
+        </label>
+      </div>
+      <hr>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="{{ url_for('caratula')}}">CARATULA</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CHECH_LIST')}}">CHECH LIST</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_LMI')}}">REP -LMI-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('PRUE_CARG')}}">REP - PRUE-CARG-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_FOTO')}}">REP-FOT-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('RESULTADOS')}}">RESULTADOS</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CERTIFICADO_GM')}}">CERTIFICADO GM</a></li>
+        </ul>
+      </nav>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+     </form>
+</body>
+</html>
+{% endblock %}

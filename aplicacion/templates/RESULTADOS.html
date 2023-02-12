@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+{%block title%} Formulario FR-INPS-009.02 {%endblock%}
+{% block content %}
+<body>
+  <hr>
+    <center><h1>RESULTADOS DE CONFORMIDAD DEL EQUIPO</h1></center>
+    <P>
+      CRITERIOS DE EVALUACIÓN															
+															
+SATISFACTORIO (S): Existe y funciona correcto, su calificación es conforme															
+DEFECTO LEVE (DL): Existe y funciona correcto, aunque requiere mejora o requiere de un mantenimiento preventivo a futuro (Should )															
+DEFECTO GRAVE (DG):  Requiere (Shall) pero No tiene, o tiene pero no funciona adecuadamente ( por ejemplo: dispositivos de seguridad, controles, limitadores, etc.) 															
+NO APLICA (NA): Cuando el diseño de la grúa es distinto al ítem mencionado y no corresponde para el presente equipo, excepto lo que exige la normativa. 															
+															
+CRITERIOS DE CONFORMIDAD															
+															
+CONFORMIDAD: Cuando el equipo ha superado cada una de las etapas de inspección, y no posee DEFECTOS GRAVES.															
+CONFORMIDAD CON DEFECTOS LEVES: Cuando el equipo ha superado cada una de las etapas de inspección, sin embargo, se han identificado defecto leves, que no comprometen la operatividad del equipo y deben ser subsanados en 01 mes.															
+NO CONFORMIDAD: Cuando el equipo no supera alguna de las diferentes etapas de inspección															
+    </P>
+    <hr> 
+    <center><h2>CONCLUSIÓN  DE CONFORMIDAD</h2></center>   
+    
+    <form class="row g-3 needs-validation" novalidate>
+      <h2>CRITERIO----SUMATORIA</h2>
+      <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+        <h3>SATISFACTORIO: {{ S.0 }}</h3>
+      
+        <h3>DEFECTO LEVE: {{ DL.0 }}</h3>
+      
+        <h3>DEFECTO GRAVE: {{ DG.0 }}</h3>
+      </div>
+    </form>
+     <hr>
+     <h2>CONFORMIDAD DEL EQUIPO</h2>
+     <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+      <h3> {{ C }}</h3>
+    
+    </div>
+
+<hr>
+<h2>CONCLUSIONES:</h2>
+<p>De acuerdo a los estándares y normativas aplicadas, se concluye que los elementos y ayudas operacionales son:</p>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" placeholder="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+      CONFORME
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" placeholder="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+      NO CONFORME
+  </label>
+</div>  
+<hr>
+<center><h2>El equipo ha sido inspeccionado bajo la siguiente Normativa.</h2></center> 
+<p>
+  ASME B 30.5                     Mobile and Locomotive Cranes				
+  ASME B 30.9                     Slings				
+  ASME B 30.10                    Hooks				
+
+</p>
+<hr>
+<h1>EQUIPOS UTILIZADOS EN LA INSPECCIÓN</h1>
+<hr>
+<h3>DESCRIPCIÓN</h3>
+<form class="row g-3 needs-validation" novalidate>
+  <h2>MULTIMETRO</h2>
+  <div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+    <h3>CODIGO INTERNO: {{ a.0 }}</h3>
+  </div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+  <h3>FECHA CALIBRACION: {{ fec1.0 }}</h3>
+  </div>
+  <h2>CINTA METRICA</h2>
+  <div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+    <h3>CODIGO INTERNO: {{ b.0 }}</h3>
+  </div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+  <h3>FECHA CALIBRACION: {{ fec2.0 }}</h3>
+  </div>
+ <h2>PIE DE REY</h2>
+ <div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+  <h3>CODIGO INTERNO: {{ c.0 }}</h3>
+</div>
+<div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+<h3>FECHA CALIBRACION: {{ fec3.0 }}</h3>
+</div>
+ <h2>FLEXOMETRO</h2>
+ <div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+  <h3>CODIGO INTERNO: {{ d.0 }}</h3>
+</div>
+<div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+<h3>FECHA CALIBRACION: {{ fec4.0 }}</h3>
+</div>
+ <h2>DINAMOMETRO</h2>
+ <div class="col-md-4 position-relative">
+    <label for="validationTooltip01" class="form-label">CÓDIGO INTERNO</label>
+    <input type="text" class="form-control" id="validationTooltip01" placeholder="CÓDIGO INTERNO" required>
+</div>
+<div class="col-md-4 position-relative">
+    <label for="validationTooltip01" class="form-label">FECHA DE CALIBRACIÓN</label>
+    <input type="date" class="form-control" id="validationTooltip01" placeholder="FECHA DE CALIBRACIÓN" required>
+</div>
+<h2>GONIOMETRO</h2>
+<div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+  <h3>CODIGO INTERNO: {{ e.0 }}</h3>
+</div>
+<div class="form-group col-xs-12 col-sm-12 col-md-6  position-relative">
+<h3>FECHA CALIBRACION: {{ fec5.0 }}</h3>
+</div>
+<hr>
+<div class="col-12">
+  <button class="btn btn-primary" type="submit">Grabar</button>
+</div>
+<nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="{{ url_for('caratula')}}">CARATULA</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CHECK_LIST_bck')}}">CHECH LIST</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_LMI')}}">REP -LMI-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('PRUE_CARG')}}">REP - PRUE-CARG-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('REP_FOTO')}}">REP-FOT-001</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('RESULTADOS')}}">RESULTADOS</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('CERTIFICADO_GM')}}">CERTIFICADO GM</a></li>
+        </ul>
+      </nav>
+        
+     </form>
+</body>
+</html>
+{% endblock %}
