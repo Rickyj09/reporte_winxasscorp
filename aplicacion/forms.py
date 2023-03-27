@@ -52,7 +52,11 @@ class buscapac(FlaskForm):
     iden = IntegerField('Articulo', validators=[DataRequired(),Length(min=10,max=14)], render_kw={"placeholder": "Articulo"})
     submit = SubmitField('Buscar')
 
-
+class buscxc(FlaskForm):
+    iden = StringField('Cliente', validators=[DataRequired()], render_kw={"placeholder": "Cliente"})
+    fec_ini = DateField('Fecha inicio', validators=[DataRequired()],render_kw={"placeholder": "Fecha inicio"})
+    fec_fin = DateField('Fecha fin', validators=[],render_kw={"placeholder": "Fecha fin"})
+    submit = SubmitField('Buscar')
 
 
 class LoginForm(FlaskForm):

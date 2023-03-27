@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/static/img/favicon.png">
-  <title>{%block title%}CATEGORIA PESO{%endblock%}</title>
+  <title>{%block title%}ARTICULO{%endblock%}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}" />
 </head>
 
@@ -31,33 +31,40 @@
       <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
         <img src="/static/img/logo1.png">
         <h6>
-          CATEGORIAS DE PESO Y EDAD
+          DATOS ARTICULO
         </h6>
+      </div>  
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
         <table class="table table-bordered">
           <tr>
-            <th>NOMBRE CATEGORIA PESO</th>
-            <th>NOMBRE CATEGORIA EDAD</th>
-            <th>GENERO</th>
-            <th>RANGO PESO Kg</th>
-            <th>RANGO EDAD años</th>
+            <th>CÓDIGO</th>
+            <th>NOMBRE</th>
+            <th>CLA</th>
+            <th>MARCA</th>
+            <th>EXISTE</th>
+            <th>TIPO DE PRODUCTO</th>
+            <th>ALMACEN</th>           
           </tr>
+         
           {% for cat in data %}
-
           <tr>
             <td>{{cat.0}}</td>
             <td>{{cat.1}}</td>
             <td>{{cat.2}}</td>
             <td>{{cat.3}}</td>
             <td>{{cat.4}}</td>
-
+            <td>{{cat.5}}</td>
+            <td>{{cat.6}}</td>
           </tr>
           {% endfor %}
-        </table>
-       
-
-        <div class="form-group col-xs-12 col-sm-12 col-md-3  position-relative">
-          <a href="{{ url_for('home') }}" class="btn btn-dark btn-sm rounded-0">Volver</a>
-        </div>
+         
+      </div>  
+      <div class="form-group col-xs-12 col-sm-12 col-md-3  position-relative">
+        <a href="{{ url_for('busc_articulo') }}" class="btn btn-dark btn-sm rounded-0">Volver</a>
+      </div>
+    </div>
+  </div>
+        
 </body>
 
 </html>

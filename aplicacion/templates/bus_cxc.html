@@ -13,11 +13,12 @@
               {% endfor %}
             </div>
             <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
-              {{ form.mes.label }} {{ form.mes(class_="form-control") }}
-              {% for error in form.mes.errors %}
+              {{ form.fec_ini.label }} {{ form.fec_ini(class_="form-control") }}
+              {% for error in form.fec_ini.errors %}
               <span style="color: red;"> {{ error }} </span>
               {% endfor %}
             </div>
+           
              <button class="form-group col-xs-12 col-sm-12 col-md-6  position-relative  btn btn-primary btn-block" type="submit" >
               Buscar 
             </button>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/static/img/favicon.png">
-  <title>{%block title%}Subir Archivo{%endblock%}</title>
+  <title>{%block title%}REPORTE CXC{%endblock%}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}" />
 </head>
 
@@ -31,22 +31,33 @@
       <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
         <img src="/static/img/logo1.png">
         <h6>
-          Subir archivo
+          DATOS CLIENTE
         </h6>
-       
-        <button id="import_button">Importar CSV</button>
 
-<script>
-    document.getElementById("import_button").addEventListener("click", function() {
-        fetch("/import_csv", {
-            method: "POST",
-            body: new FormData(document.getElementById("form_id"))
-        })
-    });
-</script>
+
+        <table class="table table-bordered">
+          <tr>
+            <th>CODIGO</th>
+            <th>NOMBRE</th>
+            <th>FECHA EMISIÓN</th>
+            <th>IR</th>
+          </tr>
+          {% for cat in data %}
+          <tr>
+            <td>{{cat.3}}</td>
+            <td>{{cat.4}}</td>
+            <td>{{cat.2}}</td>
+            <td><a href="{{url_for('busc_cxc',id=cat.3,fec=cat.2.strftime('%Y-%m-%d'),emp=cat.0,mon=cat.1,cla=cat.5)}}"><span class="glyphicon glyphicon-pencil"></span>ir</a></td>
+          </tr>
+          {% endfor %}
+        </table>
+       
+
+        
+
 
         <div class="form-group col-xs-12 col-sm-12 col-md-3  position-relative">
-          <a href="{{ url_for('home') }}" class="btn btn-dark btn-sm rounded-0">Volver</a>
+          <a href="{{ url_for('bus_cxc') }}" class="btn btn-dark btn-sm rounded-0">Volver</a>
         </div>
 </body>
 

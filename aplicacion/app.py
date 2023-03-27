@@ -7,7 +7,7 @@ from flask_mysqldb import MySQL
 from werkzeug.utils import secure_filename
 from flask_wtf import FlaskForm
 from aplicacion.forms import LoginForm, UploadForm,alumno,campeonato,buscapac,campeonato_combate\
-    ,campeonato_pommse,horario_ent,fechas_buscar
+    ,campeonato_pommse,horario_ent,fechas_buscar,buscxc
 from wtforms import SubmitField
 from flask_wtf.file import FileField, FileRequired
 from jinja2 import Environment, FileSystemLoader
@@ -160,31 +160,7 @@ def upload_1():
     return render_template('upload_1.html', form=form)
 
 
-@app.route('/inicio_foto')
-@login_required
-def inicio_foto():
-    lista = []
-    for file in listdir(app.root_path+"/static/img/subidas/"):
-        lista.append(file)
-    return render_template("inicio_foto.html", lista=lista)
 
-
-@app.route('/reporte_foto')
-@login_required
-def reporte_foto():
-    lista = []
-    for file in listdir(app.root_path+"/static/img/subidas/"):
-        lista.append(file)
-    return render_template("reporte_foto.html", lista=lista)
-
-
-@app.route('/reporte_foto1')
-@login_required
-def reporte_foto1():
-    lista = []
-    for file in listdir(app.root_path+"/static/img/subidas/"):
-        lista.append(file)
-    return render_template("reporte_foto1.html", lista=lista)
 
 
 @app.route('/home', methods=['GET', 'POST'])
@@ -196,56 +172,7 @@ def home():
     return render_template('home.html', form=form)
 
 
-@app.route('/home_alumn', methods=['GET', 'POST'])
-@login_required
-def home_alumn():
 
-    return render_template('home_alumn.html')
-
-
-@app.route('/home_campeonato', methods=['GET', 'POST'])
-@login_required
-def home_campeonato():
-
-    return render_template('home_campeonato.html')
-
-@app.route('/cate_peso', methods=['GET', 'POST'])
-@login_required
-def cate_peso():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT a.nombre,b.nombre,a.genero,a.rango,b.rango FROM cat_peso a inner JOIN cat_edad b on a.id_edad = b.id ')
-    data = cur.fetchall()
-    cur.close()
-
-    return render_template('cate_peso.html', data=data)
-
-
-@app.route('/horario_entrena', methods=['GET', 'POST'])
-@login_required
-def horario_entrena():
-    form = horario_ent()
-    if request.method == 'POST':
-        iden = request.form['iden']
-        horario = request.form['horario']
-        cursor = mysql.connection.cursor()
-        cursor.execute('select CURDATE()')
-        fecha_log = cursor.fetchone()
-        cursor.execute('insert into horario (id_alumno,valor_horario,fecha) VALUES (%s,%s,%s)',
-                       (iden, horario, fecha_log))
-        mysql.connection.commit()
-        return render_template("home.html", form=form)
-    return render_template('horario_entrena.html', form=form)
-
-@app.route('/listar_paci/<id>', methods=['POST', 'GET'])
-@login_required
-def listar_paci(id):
-    cur = mysql.connection.cursor()
-    cur.execute(
-        'SELECT * FROM paciente a inner join cat_examenes b on  a.id_examen = b.id  WHERE a.iden = %s )',  [id])
-    data = cur.fetchall()
-    cur.close()
-    print(data[0])
-    return render_template('listar-paci.html', contact=data[0])
 
 
 @app.route('/busc_articulo', methods = ['POST', 'GET'])
@@ -268,69 +195,85 @@ def busc_articulo():
 @login_required
 def busc_articulo1(id):
         cursor = mysql.connection.cursor()
-        cursor.execute("""SELECT articulos.codart,articulos.nomart,
-			            articulos.codcla,articulos.coduni,   
-                        articulos.codemp,articulos.marca,articulos.exiact,   
-                        articulos.prec01,articulos.prec02,articulos.prec03,
-			            articulos.prec04,articulos.cospro,articulos.ultcos,
-			            articulos.prec05,articulos.prec06,articulos.peso,
-			            articulos.codiva,articulos.prcc01,articulos.prcc02,
-			            articulos.prcc03,articulos.prcc04,articulos.tippro,
-			            articulos.especial,
-			            articulos.unicaj,
-			            articulos.univen
-                    FROM articulos  
-                    WHERE estado = 'A'
-                    and codart = %s """,[id])
+        cursor.execute("""SELECT  a.codart,a.nomart,a.codcla,a.marca,a.exiact,a.tippro,b.codalm
+                    FROM articulos a
+                    left join articulobodega b
+                    on a.codart = b.codart
+                    WHERE a.estado = 'A'
+                    and a.codart = %s """,[id])
         data = cursor.fetchall()
         return render_template('listar-articulo1.html', data=data)
-  
 
 
-
-@app.route('/campeonato_new', methods=["get", "post"])
+@app.route('/bus_cxc', methods = ['POST', 'GET'])
 @login_required
-def campeonato_new():
-    form = campeonato()
-    cursor = mysql.connection.cursor()
+def bus_cxc():
+    form = buscxc()
     if request.method == 'POST':
-        nombre = request.form['nombre']
-        puntua = request.form['puntua']
-        fecha = request.form['fecha']
-        obs = request.form['obs']
+        iden = request.form['iden']
+        fec_ini = request.form['fec_ini'] 
+        print(iden)
         cursor = mysql.connection.cursor()
-        cursor.execute('insert into campeonato (nombre,puntua,fecha,obs) VALUES (%s,%s,%s,%s)',
-                       (nombre, puntua, fecha, obs,))
-        mysql.connection.commit()
-        flash('Campeonato guardado correctamente')
-        return render_template("home.html", form=form)
-    return render_template("campeonato_new.html", form=form)
+        cursor.execute("""SELECT cxc.codemp,cxc.codmon,cxc.fecemi,cxc.codcli,cli.nomcli,cli.codcla
+                            FROM cuentasporcobrar cxc INNER JOIN tipodocumentos tipd ON cxc.tipdoc = tipd.tipdoc 
+                            INNER JOIN clientes cli ON cxc.codemp = cli.codemp AND cxc.codcli = cli.codcli
+                            WHERE cxc.fecemi < %s and cli.nomcli like %s""", [fec_ini,'%'+iden+'%'])
+        data = cursor.fetchall()
+        #print(data[0])
+        return render_template('listar-cxc.html', data=data)
+    return render_template("bus_cxc.html", form=form)
 
 
-@app.route('/alumno_foto')
+@app.route('/busc_cxc/<id>/<fec>/<emp>/<mon>/<cla>')
 @login_required
-def alumno_foto():
-    lista = []
-    for file in listdir(app.root_path+"/static/img/fotos/"):
-        lista.append(file)
-    return render_template("home.html", lista=lista)
-
-
-@app.route('/upload_foto', methods=['get', 'post'])
-def upload_foto():
-    form = UploadForm()  # carga request.from y request.file
-    if form.validate_on_submit():
-        f = form.photo.data
-        filename = secure_filename(f.filename)
-        f.save(app.root_path+"/static/fotos/"+filename)
-        foto = filename
+def busc_cxc(id,fec,emp,mon,cla):
         cursor = mysql.connection.cursor()
-        cursor.execute('select identificacion from alumno where fecha_log = (select max(fecha_log) from alumno);')
-        ident = cursor.fetchone()
-        cursor.execute('insert into alumno_foto (iden,foto) VALUES (%s,%s)',(ident,foto))
-        mysql.connection.commit()
-        return redirect(url_for('home'))
-    return render_template('upload_foto.html', form=form)
+        cursor.execute("""CREATE TEMPORARY TABLE tmpestadocuentas AS( 	
+		            SELECT cli.codemp,cli.codcli,
+			        SUM( cxc.valcob *( 44 - Ascii ( tipd.sigdoc ) ) ) AS valcob
+		            FROM cuentasporcobrar cxc INNER JOIN tipodocumentos tipd ON cxc.tipdoc = tipd.tipdoc 
+		            INNER JOIN clientes cli ON cxc.codemp = cli.codemp AND cxc.codcli = cli.codcli 
+		            WHERE cxc.codemp = %s AND 
+			        cxc.codmon = %s AND
+			        cxc.fecemi < %s AND
+			        cxc.codcli = %s AND
+			        cli.codcla LIKE %s
+		            GROUP BY cli.codemp,cli.codcli
+		            ORDER BY cli.codcli)""", [emp,mon,fec,id,'%'+cla+'%'])
+        cursor.execute("select CURDATE();")
+        fec_hoy = cursor.fetchone()
+        cursor.execute("""SELECT clientes.codcli,   
+	                clientes.nomcli,   
+                    cuentasporcobrar.numdoc,   
+                    cuentasporcobrar.tipdoc,   
+                    cuentasporcobrar.fecven,   
+                    cuentasporcobrar.concep,   
+                    cuentasporcobrar.valcob,   
+                    tmpestadocuentas.valcob,   
+                    clientes.codcla,   
+                    tipodocumento.sigdoc,   
+                    CASE WHEN COALESCE(clientes.codcta,'') <> '' THEN clientes.codcta 
+                    ELSE (SELECT grp.codcta FROM clasesclientes grp WHERE clientes.codemp = grp.codemp AND clientes.codcla = grp.codcla) 
+                    END AS codcta,   
+                    cuentasporcobrar.numtra,   
+                    cuentasporcobrar.fectra,   
+                    cuentasporcobrar.numdoc,   
+                    cuentasporcobrar.fecemi  
+                FROM cuentasporcobrar LEFT OUTER JOIN tmpestadocuentas ON cuentasporcobrar.codemp = tmpestadocuentas.codemp AND cuentasporcobrar.codcli = tmpestadocuentas.codcli      
+                                            INNER JOIN tipodocumento ON cuentasporcobrar.tipdoc = tipodocumento.tipdoc
+                                            INNER JOIN clientes ON cuentasporcobrar.codemp = clientes.codemp AND cuentasporcobrar.codcli = clientes.codcli
+                WHERE cuentasporcobrar.codemp = %s  AND  
+                    cuentasporcobrar.codcli = %s   AND  
+                    clientes.codcla LIKE %s   AND  
+                    cuentasporcobrar.fecemi BETWEEN %s AND %s AND  
+                    cuentasporcobrar.codmon = %s     
+                ORDER BY cuentasporcobrar.codcli ASC,   
+                    cuentasporcobrar.numtra ASC,   
+                    tipodocumento.sigdoc DESC,   
+                    cuentasporcobrar.fecven ASC """,[emp,id,'%'+cla+'%',fec,fec_hoy,mon])
+        data = cursor.fetchall()
+        print(fec_hoy)
+        return render_template('listar-ccxc.html', data=data)
 
 
 @app.errorhandler(404)
@@ -426,5 +369,20 @@ def import_csv_p():
     df3.to_sql(name='articulos_alternos', con=engine3, if_exists='replace', index=False)
     return redirect(url_for("busc_articulo"))
 
-
+@app.route('/import_csv_cxc')
+@login_required
+def import_csv_cxc():
+    df = pd.read_excel("clientes.xlsx")
+    df1 = pd.read_excel("CuentasporCobrar.xlsx")
+    df2 = pd.read_excel("TipoDocumentos.xlsx")
+    df3 = pd.read_excel("ClasesClientes.xlsx")
+    engine = create_engine("mysql://root:1234@localhost/winxasscorp")
+    engine1 = create_engine("mysql://root:1234@localhost/winxasscorp")
+    engine2 = create_engine("mysql://root:1234@localhost/winxasscorp")
+    engine3 = create_engine("mysql://root:1234@localhost/winxasscorp")
+    df.to_sql(name='clientes', con=engine, if_exists='replace', index=False)
+    df1.to_sql(name='cuentasporcobrar', con=engine1, if_exists='replace', index=False)
+    df2.to_sql(name='tipodocumento', con=engine2, if_exists='replace', index=False)
+    df3.to_sql(name='clasesclientes', con=engine3, if_exists='replace', index=False)
+    return redirect(url_for("bus_cxc"))
 
